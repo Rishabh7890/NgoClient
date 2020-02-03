@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   }
 });
 
-const UserTable = ({ users }) => {
+const DonationTable = ({ donations }) => {
   const classes = useStyles();
 
   return (
@@ -22,27 +22,22 @@ const UserTable = ({ users }) => {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>First Name</TableCell>
-            <TableCell align="right">Last Name</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Edit User</TableCell>
-            <TableCell align="right">Delete User</TableCell>
+            <TableCell>Donation Type</TableCell>
+            <TableCell align="right">Donation Amount</TableCell>
+            <TableCell align="right">Donation Reference Email</TableCell>
+            <TableCell align="right">Delete Donation</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map(u => (
-            <TableRow key={u.userEmail}>
+          {donations.map(d => (
+            <TableRow key={d.donationRefEmail}>
               <TableCell component="th" scope="row">
-                {u.userFname}
+                {d.donationType}
               </TableCell>
-              <TableCell align="right">{u.userLname}</TableCell>
-              <TableCell align="right">{u.userEmail}</TableCell>
+              <TableCell align="right">{d.donationAmount}</TableCell>
+              <TableCell align="right">{d.donationRefEmail}</TableCell>
               <TableCell align="right">
                 {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
-                Edit
-              </TableCell>
-              <TableCell align="right">
-                {/* <i className="fa fa-trash" aria-hidden="true"></i> */}
                 Delete
               </TableCell>
             </TableRow>
@@ -53,4 +48,4 @@ const UserTable = ({ users }) => {
   );
 };
 
-export default UserTable;
+export default DonationTable;

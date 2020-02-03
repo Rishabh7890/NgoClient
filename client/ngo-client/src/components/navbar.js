@@ -59,7 +59,7 @@ export default function MenuAppBar() {
                 size="medium"
               >
                 <AccountCircle />
-                {this.state.users.userFName}
+                {this.state.users.userFname}
                 
               </IconButton>
               <Menu

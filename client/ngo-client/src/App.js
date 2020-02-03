@@ -4,6 +4,7 @@ import axios from "axios";
 import DonationTable from "./components/donationTable";
 import EventTable from "./components/eventTable";
 // import "./App.css";
+import TemporaryDrawer from "./components/sidebar";
 
 let one = `http://localhost:8080/users`;
 let two = `http://localhost:8080/donations`;
@@ -52,11 +53,12 @@ class App extends Component {
       <React.Fragment>
         <div className="App">
           <header className="App-header">
-            <UserTable users={this.state.users} />
+            <TemporaryDrawer />
+            {/* <UserTable users={this.state.users} />
             <hr />
             <DonationTable donations={this.state.donations} />
             <hr />
-            <EventTable events={this.state.events} />
+            <EventTable events={this.state.events} /> */}
           </header>
         </div>
       </React.Fragment>

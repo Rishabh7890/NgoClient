@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   }
 });
 
-const UserTable = ({ users }) => {
+const EventTable = ({ events }) => {
   const classes = useStyles();
 
   return (
@@ -22,27 +22,32 @@ const UserTable = ({ users }) => {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>First Name</TableCell>
-            <TableCell align="right">Last Name</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Edit User</TableCell>
-            <TableCell align="right">Delete User</TableCell>
+            <TableCell>Event Title</TableCell>
+            <TableCell align="right">Start Date</TableCell>
+            <TableCell align="right">Duration</TableCell>
+            <TableCell align="right">Place</TableCell>
+            <TableCell align="right">Edit</TableCell>
+            <TableCell align="right">Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map(u => (
-            <TableRow key={u.userEmail}>
+          {events.map(e => (
+            <TableRow key={e.id}>
               <TableCell component="th" scope="row">
-                {u.userFname}
+                {e.eventName}
               </TableCell>
-              <TableCell align="right">{u.userLname}</TableCell>
-              <TableCell align="right">{u.userEmail}</TableCell>
+              <TableCell align="right">{e.startDate}</TableCell>
+              <TableCell align="right">{e.duration}</TableCell>
+              <TableCell align="right">
+                {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
+                {e.place}
+              </TableCell>
               <TableCell align="right">
                 {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
                 Edit
               </TableCell>
               <TableCell align="right">
-                {/* <i className="fa fa-trash" aria-hidden="true"></i> */}
+                {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
                 Delete
               </TableCell>
             </TableRow>
@@ -53,4 +58,4 @@ const UserTable = ({ users }) => {
   );
 };
 
-export default UserTable;
+export default EventTable;

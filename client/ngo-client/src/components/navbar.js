@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function MenuAppBar() {
+export default function MenuAppBar({username}) {
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -59,7 +59,7 @@ export default function MenuAppBar() {
                 size="medium"
               >
                 <AccountCircle />
-                {this.state.users.userFname}
+                {username}
                 
               </IconButton>
               <Menu

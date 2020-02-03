@@ -18,6 +18,7 @@ const requestThree = axios.get(three);
 class App extends Component {
   state = {
     users: [],
+    username : "My Username",
     donations: [],
     events: []
   };
@@ -52,7 +53,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <MenuAppBar />
+        <MenuAppBar username={this.state.username}/>
         <div className="App">
           <header className="App-header">
             <TemporaryDrawer />

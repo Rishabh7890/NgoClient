@@ -1,28 +1,62 @@
 import React, { Component } from "react";
-import SimpleTable from "./components/userTable";
+import UserTable from "./components/userTable";
 import axios from "axios";
+import DonationTable from "./components/donationTable";
+import EventTable from "./components/eventTable";
 // import "./App.css";
 
-const apiEndPoint = `http://localhost:8080/users`;
+let one = `http://localhost:8080/users`;
+let two = `http://localhost:8080/donations`;
+let three = `http://localhost:8080/events`;
+
+const requestOne = axios.get(one);
+const requestTwo = axios.get(two);
+const requestThree = axios.get(three);
 
 class App extends Component {
   state = {
-    users: []
+    users: [],
+    donations: [],
+    events: []
   };
 
   componentDidMount() {
-    axios.get(`${apiEndPoint}`).then(res => {
-      const users = res.data;
-      console.log(users);
-      this.setState({ users });
-    });
+    axios
+      .all([requestOne, requestTwo, requestThree])
+      .then(
+        axios.spread((...responses) => {
+          const responseOne = responses[0];
+          const responseTwo = responses[1];
+          const responesThree = responses[2];
+
+          const users = responseOne.data;
+          const donations = responseTwo.data;
+          const events = responesThree.data;
+
+          console.log(users);
+          console.log(donations);
+          console.log(events);
+
+          this.setState({ users });
+          this.setState({ donations });
+          this.setState({ events });
+        })
+      )
+      .catch(errors => {
+        console.log(errors);
+      });
   }
+
   render() {
     return (
       <React.Fragment>
         <div className="App">
           <header className="App-header">
-            <SimpleTable users={this.state.users} />
+            <UserTable users={this.state.users} />
+            <hr />
+            <DonationTable donations={this.state.donations} />
+            <hr />
+            <EventTable events={this.state.events} />
           </header>
         </div>
       </React.Fragment>

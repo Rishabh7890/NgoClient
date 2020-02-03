@@ -4,11 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
@@ -37,22 +33,7 @@ export default function MenuAppBar() {
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
-    return(
-      <div> 
-          <li>
-              <a href="/admin">Home</a>
-          </li>
-          <li>
-              <a href="/showusers">Users</a>
-          </li>
-          <li>
-              <a href="/showevents">Events</a>
-          </li>
-          <li>
-              <a href="/showdonations">Donations</a>
-          </li>
-          </div>
-      )
+    
   };
 
   const handleClose = () => {
@@ -61,19 +42,11 @@ export default function MenuAppBar() {
 
   return (
     <div className={classes.root}>
-      <FormGroup>
-        <FormControlLabel
-          control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" onClick={handleMenu} className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            NGO-Donations
+          
+          <Typography variant="h6" align="center" className={classes.title}>
+            <h2>NGO-Donations</h2>
           </Typography>
           {auth && (
             <div>
@@ -81,10 +54,13 @@ export default function MenuAppBar() {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={MenuMenu}
+                onClick={handleMenu}
                 color="inherit"
+                size="medium"
               >
                 <AccountCircle />
+                {this.state.users.userFName}
+                
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -101,8 +77,7 @@ export default function MenuAppBar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleChange}>Logout</MenuItem>
               </Menu>
             </div>
           )}

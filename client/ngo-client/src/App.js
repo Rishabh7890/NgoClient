@@ -3,6 +3,7 @@ import UserTable from "./components/userTable";
 import axios from "axios";
 import DonationTable from "./components/donationTable";
 import EventTable from "./components/eventTable";
+import MenuAppBar from "./components/navbar"
 // import "./App.css";
 
 let one = `http://localhost:8080/users`;
@@ -50,6 +51,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <MenuAppBar />
         <div className="App">
           <header className="App-header">
             <UserTable users={this.state.users} />

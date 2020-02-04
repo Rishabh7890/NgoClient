@@ -31,7 +31,7 @@ class App extends Component {
     donations: [],
     events: [],
     username: "",
-    adminOrUser: "none"
+    pageContent: "none"
   };
 
   componentDidMount() {
@@ -62,95 +62,225 @@ class App extends Component {
   }
 
   handleUserPortalClick() {
-    this.setState({ adminOrUser: "user" });
-    console.log(this.state.adminOrUser);
+    this.setState({ pageContent: "userEvents" });
+    console.log(this.state.pageContent);
   }
 
   handleAdminPortalClick() {
-    this.setState({ adminOrUser: "admin" });
-    console.log(this.state.adminOrUser);
+    this.setState({ pageContent: "adminManageUsers" });
+    console.log(this.state.pageContent);
   }
 
   handleBackClick() {
-    this.setState({ adminOrUser: "none" });
-    console.log(this.state.adminOrUser);
+    this.setState({ pageContent: "none" });
+    console.log(this.state.pageContent);
   }
 
+  handleDmClickAdmin = () => {
+    this.setState({ pageContent: "adminDonations" });
+    console.log(this.state.pageContent);
+  };
+
+  handleUmClickAdmin = () => {
+    this.setState({ pageContent: "adminManageUsers" });
+    console.log(this.state.pageContent);
+  };
+
+  handleEmClickAdmin = () => {
+    this.setState({ pageContent: "adminEvents" });
+    console.log(this.state.pageContent);
+  };
+
   render() {
-    return(<Addevent/>)
-    // {
-    //   if (this.state.adminOrUser === "none") {
-    //     return (
-    //       <React.Fragment>
-    //         <MenuAppBar />
-    //         <div className="App" align="center">
-    //           <header className="App-header" style={buttonMarginStyle}>
-    //             <Button
-    //               variant="contained"
-    //               color="primary"
-    //               onClick={() => {
-    //                 this.handleUserPortalClick();
-    //               }}
-    //             >
-    //               I Am A User
-    //             </Button>
-    //             <Button
-    //               variant="contained"
-    //               color="secondary"
-    //               onClick={() => {
-    //                 this.handleAdminPortalClick();
-    //               }}
-    //             >
-    //               I Am An Admin
-    //             </Button>
-    //             {/* <TemporaryDrawer /> */}
-    //             {/* <UserTable users={this.state.users} />
-    //           <hr />
-    //           <DonationTable donations={this.state.donations} />
-    //           <hr />
-    //           <EventTable events={this.state.events} /> */}
-    //           </header>
-    //         </div>
-    //       </React.Fragment>
-    //     );
-    //   } else if (this.state.adminOrUser === "admin") {
-    //     return (
-    //       <React.Fragment>
-    //         <MenuAppBar />
-    //         <TemporaryDrawer />
-    //         <UserTable users={this.state.users} />
-    //         <hr />
-    //         <Button
-    //           variant="contained"
-    //           color="secondary"
-    //           onClick={() => {
-    //             this.handleBackClick();
-    //           }}
-    //         >
-    //           Back
-    //         </Button>
-    //       </React.Fragment>
-    //     );
-    //   } else if (this.state.adminOrUser === "user") {
-    //     return (
-    //       <React.Fragment>
-    //         <MenuAppBar />
-    //         <UserTemporaryDrawer />
-    //         <UserEventTable events={this.state.events} />
-    //         <hr />
-    //         <Button
-    //           variant="contained"
-    //           color="secondary"
-    //           onClick={() => {
-    //             this.handleBackClick();
-    //           }}
-    //         >
-    //           Back
-    //         </Button>
-    //       </React.Fragment>
-    //     );
-    //   }
-    // }
+    {
+      if (this.state.pageContent === "none") {
+        return (
+          <React.Fragment>
+            <MenuAppBar />
+            <div className="App" align="center">
+              <header className="App-header" style={buttonMarginStyle}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {
+                    this.handleUserPortalClick();
+                  }}
+                >
+                  I Am A User
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => {
+                    this.handleAdminPortalClick();
+                  }}
+                >
+                  I Am An Admin
+                </Button>
+                {/* <TemporaryDrawer /> */}
+                {/* <UserTable users={this.state.users} />
+              <hr />
+              <DonationTable donations={this.state.donations} />
+              <hr />
+              <EventTable events={this.state.events} /> */}
+              </header>
+            </div>
+          </React.Fragment>
+        );
+      } else if (this.state.pageContent === "adminManageUsers") {
+        return (
+          <React.Fragment>
+            <MenuAppBar />
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleUmClickAdmin();
+              }}
+            >
+              User Management
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleDmClickAdmin();
+              }}
+            >
+              Donation Management
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleEmClickAdmin();
+              }}
+            >
+              Event Management
+            </Button>
+            {/* <TemporaryDrawer pageContent={this.state.pageContent} /> */}
+            <UserTable users={this.state.users} />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                this.handleBackClick();
+              }}
+            >
+              Back
+            </Button>
+          </React.Fragment>
+        );
+      } else if (this.state.pageContent === "userEvents") {
+        return (
+          <React.Fragment>
+            <MenuAppBar />
+            {/* <UserTemporaryDrawer /> */}
+            <UserEventTable events={this.state.events} />
+            <hr />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                this.handleBackClick();
+              }}
+            >
+              Back
+            </Button>
+          </React.Fragment>
+        );
+      } else if (this.state.pageContent === "adminDonations") {
+        return (
+          <React.Fragment>
+            <MenuAppBar />
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleUmClickAdmin();
+              }}
+            >
+              User Management
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleDmClickAdmin();
+              }}
+            >
+              Donation Management
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleEmClickAdmin();
+              }}
+            >
+              Event Management
+            </Button>
+            {/* <UserTemporaryDrawer /> */}
+            <DonationTable donations={this.state.donations} />
+            <hr />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                this.handleBackClick();
+              }}
+            >
+              Back
+            </Button>
+          </React.Fragment>
+        );
+      } else if (this.state.pageContent === "adminEvents") {
+        return (
+          <React.Fragment>
+            <MenuAppBar />
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleUmClickAdmin();
+              }}
+            >
+              User Management
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleDmClickAdmin();
+              }}
+            >
+              Donation Management
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                this.handleEmClickAdmin();
+              }}
+            >
+              Event Management
+            </Button>
+            {/* <UserTemporaryDrawer /> */}
+            <EventTable events={this.state.events} />
+            <hr />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                this.handleBackClick();
+              }}
+            >
+              Back
+            </Button>
+          </React.Fragment>
+        );
+      }
+    }
   }
 }
 

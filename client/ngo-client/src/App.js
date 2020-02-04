@@ -6,7 +6,8 @@ import EventTable from "./components/eventTable";
 import MenuAppBar from "./components/navbar";
 // import "./App.css";
 import TemporaryDrawer from "./components/sidebar";
-import Button from "@material-ui/core/Button";
+import Loggin from './components/loginForm'
+import Adduser from "./components/Adduser";
 
 let one = `http://localhost:8080/users`;
 let two = `http://localhost:8080/donations`;
@@ -97,7 +98,7 @@ class App extends Component {
             <hr />
             <EventTable events={this.state.events} /> */}
           </header>
-        </div>
+        </div> 
       </React.Fragment>
     );
   }

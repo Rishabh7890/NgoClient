@@ -11,6 +11,7 @@ import Loggin from "./components/loginForm";
 import Adduser from "./components/Adduser";
 import UserTemporaryDrawer from "./components/userSidebar";
 import UserEventTable from "./components/userEventTable";
+import Addevent from "./addevent";
 
 let one = `http://localhost:8080/users`;
 let two = `http://localhost:8080/donations`;

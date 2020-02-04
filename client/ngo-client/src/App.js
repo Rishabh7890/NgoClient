@@ -96,9 +96,9 @@ class App extends Component {
             <hr />
             <DonationTable donations={this.state.donations} />
             <hr />
-            <EventTable events={this.state.events} /> 
+            <EventTable events={this.state.events} /> */}
           </header>
-        </div> */}
+        </div> 
       </React.Fragment>
     );
   }

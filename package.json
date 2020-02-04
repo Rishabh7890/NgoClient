@@ -16,8 +16,5 @@
     "url": "https://github.com/Rishabh7890/NgoClient/issues"
   },
   "homepage": "https://github.com/Rishabh7890/NgoClient#readme",
-  "dependencies": {
-    "create-react-redux-app-structure": "^4.6.0",
-    "global": "^4.4.0"
-  }
+  "dependencies": {}
 }

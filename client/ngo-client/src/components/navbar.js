@@ -58,8 +58,9 @@ export default function MenuAppBar({username}) {
                 color="inherit"
                 size="medium"
               >
-                <AccountCircle />
-                {username}
+              {username}
+              <AccountCircle />
+                
                 
               </IconButton>
               <Menu

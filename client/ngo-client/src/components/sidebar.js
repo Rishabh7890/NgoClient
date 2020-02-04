@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer({ adminOrUser }) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -26,6 +26,18 @@ export default function TemporaryDrawer() {
     bottom: false,
     right: false
   });
+
+  const handleDmClick = () => {
+    this.adminOrUser = "adminDonations";
+  };
+
+  const handleUmClick = () => {
+    this.adminOrUser = "adminUsers";
+  };
+
+  const handleEmClick = () => {
+    this.adminOrUser = "adminEvents";
+  };
 
   const toggleDrawer = (side, open) => event => {
     if (
@@ -46,7 +58,7 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {["User Management", "Donation Management", "User View"].map(
+        {/* {["User Management", "Donation Management", "Event Management"].map(
           (text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
@@ -55,7 +67,36 @@ export default function TemporaryDrawer() {
               <ListItemText primary={text} />
             </ListItem>
           )
-        )}
+        )} */}
+        <Button
+          variant="contained"
+          color="default"
+          onClick={() => {
+            handleUmClick();
+          }}
+        >
+          User Management
+        </Button>
+        <hr />
+        <Button
+          variant="contained"
+          color="default"
+          onClick={() => {
+            handleDmClick();
+          }}
+        >
+          Donation Management
+        </Button>
+        <hr />
+        <Button
+          variant="contained"
+          color="default"
+          onClick={() => {
+            handleEmClick();
+          }}
+        >
+          Event Management
+        </Button>
       </List>
     </div>
   );

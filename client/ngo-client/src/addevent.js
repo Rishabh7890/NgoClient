@@ -1,21 +1,21 @@
 import React from "react";
 import { MDBCol, MDBBtn } from "mdbreact";
 
-class Adduser extends React.Component {
+class AddEvent extends React.Component {
   state = {
-    fname: {
+    ename: {
       value: "",
       valid: false
     },
-    lname: {
+    estart: {
       value: "",
       valid: false
     },
-    email: {
+    eduration: {
       value: "",
       valid: false
     },
-    password: {
+    eplace: {
       value: "",
       valid: false
     }
@@ -152,4 +152,4 @@ class Adduser extends React.Component {
   }
 }
 
-export default Adduser;
+export default AddEvent;

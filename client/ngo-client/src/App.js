@@ -9,6 +9,8 @@ import Button from "@material-ui/core/Button";
 import TemporaryDrawer from "./components/sidebar";
 import Loggin from "./components/loginForm";
 import Adduser from "./components/Adduser";
+import UserTemporaryDrawer from "./components/userSidebar";
+import UserEventTable from "./components/userEventTable";
 
 let one = `http://localhost:8080/users`;
 let two = `http://localhost:8080/donations`;
@@ -68,6 +70,11 @@ class App extends Component {
     console.log(this.state.adminOrUser);
   }
 
+  handleBackClick() {
+    this.setState({ adminOrUser: "none" });
+    console.log(this.state.adminOrUser);
+  }
+
   render() {
     {
       if (this.state.adminOrUser === "none") {
@@ -110,6 +117,34 @@ class App extends Component {
             <MenuAppBar />
             <TemporaryDrawer />
             <UserTable users={this.state.users} />
+            <hr />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                this.handleBackClick();
+              }}
+            >
+              Back
+            </Button>
+          </React.Fragment>
+        );
+      } else if (this.state.adminOrUser === "user") {
+        return (
+          <React.Fragment>
+            <MenuAppBar />
+            <UserTemporaryDrawer />
+            <UserEventTable events={this.state.events} />
+            <hr />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                this.handleBackClick();
+              }}
+            >
+              Back
+            </Button>
           </React.Fragment>
         );
       }

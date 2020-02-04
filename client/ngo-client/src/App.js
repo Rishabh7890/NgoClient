@@ -3,7 +3,7 @@ import UserTable from "./components/userTable";
 import axios from "axios";
 import DonationTable from "./components/donationTable";
 import EventTable from "./components/eventTable";
-import MenuAppBar from "./components/navbar"
+import MenuAppBar from "./components/navbar";
 // import "./App.css";
 import TemporaryDrawer from "./components/sidebar";
 import Loggin from './components/loginForm'
@@ -17,11 +17,17 @@ const requestOne = axios.get(one);
 const requestTwo = axios.get(two);
 const requestThree = axios.get(three);
 
+const buttonMarginStyle = {
+  marginTop: "25px"
+};
+
 class App extends Component {
   state = {
     users: [],
     donations: [],
-    events: []
+    events: [],
+    username: "",
+    adminOrUser: "none"
   };
 
   componentDidMount() {
@@ -51,15 +57,41 @@ class App extends Component {
       });
   }
 
+  handleUserPortalClick() {
+    this.setState({ adminOrUser: "user" });
+    console.log(this.state.adminOrUser);
+  }
+
+  handleAdminPortalClick() {
+    this.setState({ adminOrUser: "admin" });
+    console.log(this.state.adminOrUser);
+  }
+
   render() {
     return (
       <React.Fragment>
-        <MenuAppBar users={this.state.users}/>
-        <Adduser />
-
-        {/* <div className="App">
-          <header className="App-header">
-            <TemporaryDrawer />
+        <MenuAppBar />
+        <div className="App" align="center">
+          <header className="App-header" style={buttonMarginStyle}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                this.handleUserPortalClick();
+              }}
+            >
+              I Am A User
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                this.handleAdminPortalClick();
+              }}
+            >
+              I Am An Admin
+            </Button>
+            {/* <TemporaryDrawer /> */}
             {/* <UserTable users={this.state.users} />
             <hr />
             <DonationTable donations={this.state.donations} />

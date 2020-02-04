@@ -1,8 +1,10 @@
 import React from "react";
+import axios from "axios";
 import { MDBCol, MDBBtn } from "mdbreact";
 
 class Adduser extends React.Component {
   state = {
+    users: [],
     fname: {
       value: "",
       valid: false
@@ -20,6 +22,13 @@ class Adduser extends React.Component {
       valid: false
     }
   };
+
+  componentDidMount() {
+    axios.get(`http://localhost:8080/users`).then(res => {
+      const users = res.data;
+      this.setState({ users });
+    });
+  }
 
   changeHandler = event => {
     this.setState({

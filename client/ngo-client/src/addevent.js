@@ -1,13 +1,13 @@
 import React from "react";
 import { MDBCol, MDBBtn } from "mdbreact";
 
-class AddEvent extends React.Component {
+class Addevent extends React.Component {
   state = {
     ename: {
       value: "",
       valid: false
     },
-    estart: {
+    esdate: {
       value: "",
       valid: false
     },
@@ -28,49 +28,53 @@ class AddEvent extends React.Component {
         valid: !!event.target.value
       }
     });
-  };
-
+};
+ handleMenu = event => {
+  console.log(this.state.eduration.value);
+  console.log(this.state.epalce.value);
+  console.log(this.state.esdate.value);
+};
   render() {
     return (
       <div align="center">
         <form>
-          <h1> Add new User </h1>
+          <h1> Add a new Event </h1>
           <MDBCol align="center" md="4" className="mb-3">
             <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
-              First name{" "}
+              Event name{" "}
             </label>{" "}
             <input
-              value={this.state.fname.value}
+              value={this.state.ename.value}
               className={
-                this.state.fname.valid
+                this.state.ename.valid
                   ? "form-control is-valid"
                   : "form-control is-invalid"
               }
-              name="fname"
+              name="ename"
               onChange={this.changeHandler}
               type="text"
               id="defaultFormRegisterNameEx"
-              placeholder="First name"
+              placeholder="Event name"
               required
             />
             <div className="valid-feedback"> Looks good! </div>{" "}
           </MDBCol>
           <MDBCol md="4" className="mb-3">
             <label htmlFor="defaultFormRegisterEmailEx2" className="grey-text">
-              Last name{" "}
+              Start Date{" "}
             </label>{" "}
             <input
-              value={this.state.lname.value}
+              value={this.state.esdate.value}
               className={
-                this.state.lname.valid
+                this.state.esdate.valid
                   ? "form-control is-valid"
                   : "form-control is-invalid"
               }
-              name="lname"
+              name="esdate"
               onChange={this.changeHandler}
-              type="text"
+              type="date"
               id="defaultFormRegisterEmailEx2"
-              placeholder="Last name"
+              placeholder=" start date"
               required
             />
             <div className="valid-feedback"> Looks good! </div>{" "}
@@ -80,22 +84,22 @@ class AddEvent extends React.Component {
               htmlFor="defaultFormRegisterConfirmEx3"
               className="grey-text"
             >
-              Email{" "}
+              Duration{" "}
             </label>{" "}
             <input
-              value={this.state.email.value}
+              value={this.state.eduration.value}
               className={
-                this.state.email.valid
+                this.state.eduration.valid
                   ? "form-control is-valid"
                   : "form-control is-invalid"
               }
               onChange={this.changeHandler}
-              type="email"
+              type="time"
               id="defaultFormRegisterConfirmEx3"
-              name="email"
-              placeholder="Your Email address"
+              name="eduration"
+              placeholder="Event Duration"
             />
-            <small id="emailHelp" className="form-text text-muted">
+            <small id="eduration" className="form-text text-muted">
               We 'll never share your email with anyone else.{" "}
             </small>{" "}
           </MDBCol>
@@ -104,21 +108,21 @@ class AddEvent extends React.Component {
               htmlFor="defaultFormRegisterPasswordEx4"
               className="grey-text"
             >
-              Password{" "}
+              Place{" "}
             </label>{" "}
             <input
-              value={this.state.password.value}
+              value={this.state.eplace.value}
               className={
-                this.state.password.valid
+                this.state.eplace.valid
                   ? "form-control is-valid"
                   : "form-control is-invalid"
               }
               onChange={this.changeHandler}
-              type="password"
+              type="location"
               id="defaultFormRegisterPasswordEx4"
               className="form-control"
-              name="password"
-              placeholder="password"
+              name="eplace"
+              placeholder="location"
               required
             />
             <div className="invalid-feedback">
@@ -152,4 +156,4 @@ class AddEvent extends React.Component {
   }
 }
 
-export default AddEvent;
+export default Addevent;

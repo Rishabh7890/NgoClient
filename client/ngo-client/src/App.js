@@ -8,6 +8,8 @@ import MenuAppBar from "./components/navbar";
 import TemporaryDrawer from "./components/sidebar";
 import Loggin from './components/loginForm'
 import Adduser from "./components/Adduser";
+import Button from '@material-ui/core/Button'
+import Adminsignup from "./components/Adminsignup";
 
 let one = `http://localhost:8080/users`;
 let two = `http://localhost:8080/donations`;
@@ -71,7 +73,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <MenuAppBar />
-        <div className="App" align="center">
+        
+        {/* <div className="App" align="center">
           <header className="App-header" style={buttonMarginStyle}>
             <Button
               variant="contained"
@@ -96,9 +99,9 @@ class App extends Component {
             <hr />
             <DonationTable donations={this.state.donations} />
             <hr />
-            <EventTable events={this.state.events} /> */}
+            <EventTable events={this.state.events} /> 
           </header>
-        </div> 
+        </div>  */}
       </React.Fragment>
     );
   }

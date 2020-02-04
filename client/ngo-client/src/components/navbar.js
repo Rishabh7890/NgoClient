@@ -26,7 +26,7 @@ export default function MenuAppBar({users}) {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const username="";
+  const username="admin admin"
 
   const handleChange = event => {
     setAuth(event.target.checked);
@@ -59,7 +59,7 @@ export default function MenuAppBar({users}) {
                 color="inherit"
                 size="medium"
               >
-              {users[0].userFname}
+              {username}
               <AccountCircle />
                 
                 

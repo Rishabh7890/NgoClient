@@ -6,6 +6,8 @@ import EventTable from "./components/eventTable";
 import MenuAppBar from "./components/navbar"
 // import "./App.css";
 import TemporaryDrawer from "./components/sidebar";
+import Loggin from './components/loginForm'
+import Adduser from "./components/Adduser";
 
 let one = `http://localhost:8080/users`;
 let two = `http://localhost:8080/donations`;
@@ -53,16 +55,18 @@ class App extends Component {
     return (
       <React.Fragment>
         <MenuAppBar users={this.state.users}/>
-        <div className="App">
+        <Adduser />
+
+        {/* <div className="App">
           <header className="App-header">
             <TemporaryDrawer />
             {/* <UserTable users={this.state.users} />
             <hr />
             <DonationTable donations={this.state.donations} />
             <hr />
-            <EventTable events={this.state.events} /> */}
+            <EventTable events={this.state.events} /> 
           </header>
-        </div>
+        </div> */}
       </React.Fragment>
     );
   }

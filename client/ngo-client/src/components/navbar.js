@@ -21,11 +21,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function MenuAppBar({username}) {
+export default function MenuAppBar({users}) {
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const username="";
 
   const handleChange = event => {
     setAuth(event.target.checked);
@@ -58,8 +59,9 @@ export default function MenuAppBar({username}) {
                 color="inherit"
                 size="medium"
               >
-                <AccountCircle />
-                {username}
+              {users[0].userFname}
+              <AccountCircle />
+                
                 
               </IconButton>
               <Menu

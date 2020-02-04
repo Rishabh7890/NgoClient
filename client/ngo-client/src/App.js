@@ -69,39 +69,51 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <React.Fragment>
-        <MenuAppBar />
-        <div className="App" align="center">
-          <header className="App-header" style={buttonMarginStyle}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => {
-                this.handleUserPortalClick();
-              }}
-            >
-              I Am A User
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => {
-                this.handleAdminPortalClick();
-              }}
-            >
-              I Am An Admin
-            </Button>
-            {/* <TemporaryDrawer /> */}
-            {/* <UserTable users={this.state.users} />
-            <hr />
-            <DonationTable donations={this.state.donations} />
-            <hr />
-            <EventTable events={this.state.events} /> */}
-          </header>
-        </div>
-      </React.Fragment>
-    );
+    {
+      if (this.state.adminOrUser === "none") {
+        return (
+          <React.Fragment>
+            <MenuAppBar />
+            <div className="App" align="center">
+              <header className="App-header" style={buttonMarginStyle}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {
+                    this.handleUserPortalClick();
+                  }}
+                >
+                  I Am A User
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => {
+                    this.handleAdminPortalClick();
+                  }}
+                >
+                  I Am An Admin
+                </Button>
+                {/* <TemporaryDrawer /> */}
+                {/* <UserTable users={this.state.users} />
+              <hr />
+              <DonationTable donations={this.state.donations} />
+              <hr />
+              <EventTable events={this.state.events} /> */}
+              </header>
+            </div>
+          </React.Fragment>
+        );
+      } else if (this.state.adminOrUser === "admin") {
+        return (
+          <React.Fragment>
+            <MenuAppBar />
+            <TemporaryDrawer />
+            <UserTable users={this.state.users} />
+          </React.Fragment>
+        );
+      }
+    }
   }
 }
 

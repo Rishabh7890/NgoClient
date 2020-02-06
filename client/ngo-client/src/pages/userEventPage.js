@@ -28,13 +28,6 @@ class UserEventPage extends Component {
     return (
       <React.Fragment>
         <MenuAppBar />
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={this._handleLogoutClick}
-        >
-          Logout
-        </Button>
         <UserEventTable events={this.state.events} />
         <hr />
       </React.Fragment>

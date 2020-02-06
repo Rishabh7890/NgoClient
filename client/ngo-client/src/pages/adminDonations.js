@@ -37,13 +37,6 @@ class AdminDonations extends Component {
     return (
       <React.Fragment>
         <MenuAppBar />
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={this._handleLogoutClick}
-        >
-          Logout
-        </Button>
         <div className="App" align="center">
           <header className="App-header" style={buttonMarginStyle}>
             <DonationTable donations={this.state.donations} />

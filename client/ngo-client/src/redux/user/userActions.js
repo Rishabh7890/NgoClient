@@ -5,7 +5,7 @@ export const fetchUsers = () => {
     return (dispatch) => {
         console.log("action called")
         dispatch(fetchUsersRequest())
-    axios.get(`http://localhost:8080/users`)
+    axios.get(`http://127.0.0.1:8080/users`)
             .then(response => {
                                                 // response.data is the users
             const users = response.data

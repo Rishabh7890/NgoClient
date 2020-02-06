@@ -4,7 +4,7 @@ import {FETCH_EVENTS_REQUEST,FETCH_EVENTS_SUCCESS,FETCH_EVENTS_FAILURE} from './
 export const fetchEvent = () => {
     return (dispatch) => {
         dispatch(fetchEventRequest())
-    axios.get(`http://localhost:8080/events`)
+    axios.get(`http://127.0.0.1/events`)
             .then(response => {
                                                 // response.data is the users
             const event = response.data

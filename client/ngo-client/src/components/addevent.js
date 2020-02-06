@@ -139,9 +139,6 @@ class Addevent extends React.Component {
                 id="invalidCheck"
                 required
               />
-              <label className="custom-control-label" htmlFor="invalidCheck">
-                Agree to terms and conditions{" "}
-              </label>{" "}
               <div className="invalid-feedback">
                 You must agree before submitting.{" "}
               </div>{" "}

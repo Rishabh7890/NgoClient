@@ -19,18 +19,10 @@ const useStyles = makeStyles({
 const UserTable = ({ users }) => {
   const classes = useStyles();
 
-  const handleDelete = async post => {
-    // const originalPosts = this.state.posts;
-    // const posts = this.state.posts.filter(p => p.id !== post.id);
-    // this.setState({ posts });
-    // console.log("Delete", post);
-    try {
-      await axios.delete(
-        `http://localhost:8080/users/delete/${users.screenName}`
-      );
-    } catch (ex) {
-      alert("Error deleting post");
-    }
+  const handleDelete = e => {
+    console.log(e);
+    axios.delete(`http://localhost:8080/users/delete/${e}`);
+    window.open("http://127.0.0.1:3000/adminusers", "_self");
   };
 
   return (
@@ -54,7 +46,9 @@ const UserTable = ({ users }) => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={handleDelete}
+                  onClick={() => {
+                    handleDelete(u.screenName);
+                  }}
                 >
                   Delete
                 </Button>

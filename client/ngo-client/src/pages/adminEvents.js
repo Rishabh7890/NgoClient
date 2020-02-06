@@ -43,6 +43,9 @@ class AdminEvents extends Component {
             <Button variant="contained" color="default">
               <Link to="/adminchoicepage">Back</Link>
             </Button>
+            <Button variant="contained" color="default">
+              <Link to="/adminaddevent">Add An Event</Link>
+            </Button>
           </header>
         </div>
       </React.Fragment>

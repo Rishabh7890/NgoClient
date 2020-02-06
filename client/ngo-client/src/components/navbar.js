@@ -47,16 +47,6 @@ export default function MenuAppBar() {
           </Typography>
           {auth && (
             <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-                size="medium"
-              >
-                <AccountCircle />
-              </IconButton>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}

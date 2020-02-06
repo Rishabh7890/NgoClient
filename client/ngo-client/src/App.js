@@ -10,6 +10,7 @@ import AdminHomePage from "./pages/adminHomePage";
 import AdminUsers from "./pages/adminUsers";
 import AdminDonations from "./pages/adminDonations";
 import AdminEvents from "./pages/adminEvents";
+import AdminChoicePage from "./pages/adminChoicePage";
 
 class App extends Component {
   constructor() {
@@ -23,11 +24,12 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <div className="jumbotron">
+        <div className="">
           <Router>
             <Switch>
               <Route path="/userhomepage" component={UserHomePage} />
               <Route path="/usereventpage" component={UserEventPage} />
+              <Route path="/adminchoicepage" component={AdminChoicePage} />
               <Route path="/adminhomepage" component={AdminHomePage} />
               <Route path="/adminusers" component={AdminUsers} />
               <Route path="/admindonations" component={AdminDonations} />

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import { Button } from "@material-ui/core";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import HomeIcon from "@material-ui/icons/Home";
 
 export default class Header extends Component {
   static propTypes = {
@@ -10,16 +13,34 @@ export default class Header extends Component {
   render() {
     const { authenticated } = this.props;
     return (
-      <ul className="menu">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
+      <React.Fragment>
+        <Button variant="contained" color="default">
+          <Link to="/">
+            <HomeIcon />
+          </Link>
+        </Button>
+
         {authenticated ? (
-          <li onClick={this._handleLogoutClick}>Logout</li>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={this._handleLogoutClick}
+          >
+            Logout
+          </Button>
         ) : (
-          <li onClick={this._handleSignInClick}>Login</li>
+          // <li onClick={this._handleLogoutClick}>Logout</li>
+          // <li onClick={this._handleSignInClick}>Login</li>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this._handleSignInClick}
+          >
+            Login Twitter
+            <TwitterIcon />
+          </Button>
         )}
-      </ul>
+      </React.Fragment>
     );
   }
 

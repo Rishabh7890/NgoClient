@@ -63,11 +63,15 @@ class UserHomePage extends Component {
             handleNotAuthenticated={this._handleNotAuthenticated}
           />
           <div>
+            <hr />
             {!authenticated ? (
-              <h1>Welcome!</h1>
+              <h1>
+                Welcome! Please Log In Via Twitter To Access Current Events To Donate
+                To!
+              </h1>
             ) : (
               <div>
-                <h1>You have login succcessfully!</h1>
+                <h1>You have logged in successfully!</h1>
                 <h2>Welcome {this.state.user.name}!</h2>
               </div>
             )}

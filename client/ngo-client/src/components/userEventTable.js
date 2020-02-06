@@ -53,10 +53,6 @@ const UserEventTable = ({ events }) => {
           </TableBody>
         </Table>
       </TableContainer>
-
-      <Button variant="contained" color="default">
-        <Link to="/">Back</Link>
-      </Button>
     </React.Fragment>
   );
 };

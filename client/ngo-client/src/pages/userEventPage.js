@@ -20,21 +20,23 @@ class UserEventPage extends Component {
     });
   }
 
+  _handleLogoutClick = () => {
+    window.open("http://127.0.0.1:3000/", "_self");
+  };
+
   render() {
     return (
       <React.Fragment>
         <MenuAppBar />
-        <UserEventTable events={this.state.events} />
-        <hr />
-        {/* <Button
+        <Button
           variant="contained"
           color="secondary"
-          onClick={() => {
-            this.handleBackClick();
-          }}
+          onClick={this._handleLogoutClick}
         >
-          Back
-        </Button> */}
+          Logout
+        </Button>
+        <UserEventTable events={this.state.events} />
+        <hr />
       </React.Fragment>
     );
   }

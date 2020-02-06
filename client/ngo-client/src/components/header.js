@@ -29,8 +29,6 @@ export default class Header extends Component {
             Logout
           </Button>
         ) : (
-          // <li onClick={this._handleLogoutClick}>Logout</li>
-          // <li onClick={this._handleSignInClick}>Login</li>
           <Button
             variant="contained"
             color="primary"

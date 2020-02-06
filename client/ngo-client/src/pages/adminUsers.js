@@ -28,15 +28,27 @@ class AdminUsers extends Component {
       this.setState({ users });
     });
   }
+
+  _handleLogoutClick = () => {
+    window.open("http://127.0.0.1:3000/", "_self");
+  };
+
   render() {
     return (
       <React.Fragment>
         <MenuAppBar />
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={this._handleLogoutClick}
+        >
+          Logout
+        </Button>
         <div className="App" align="center">
           <header className="App-header" style={buttonMarginStyle}>
             <UserTable users={this.state.users} />
             <Button variant="contained" color="default">
-              <Link to="/adminhomepage">Back</Link>
+              <Link to="/adminchoicepage">Back</Link>
             </Button>
           </header>
         </div>

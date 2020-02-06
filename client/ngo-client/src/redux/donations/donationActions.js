@@ -4,7 +4,7 @@ import {FETCH_DONATIONS_REQUEST,FETCH_DONATIONS_SUCCESS,FETCH_DONATIONS_FAILURE}
 export const fetchDonations = () => {
     return (dispatch) => {
         dispatch(fetchDonationsRequest())
-    axios.get(`http://localhost:8080/donations`)
+    axios.get(`http://127.0.0.1/donations`)
             .then(response => {
                                                 // response.data is the users
             const donations = response.data

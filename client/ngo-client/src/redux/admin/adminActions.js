@@ -4,7 +4,7 @@ import {FETCH_ADMINS_REQUEST,FETCH_ADMINS_SUCCESS,FETCH_ADMINS_FAILURE} from './
 export const fetchAdmins = () => {
     return (dispatch) => {
         dispatch(fetchAdminsRequest())
-    axios.get(`http://localhost:8080/admins`)
+    axios.get(`http://127.0.0.1:8080/admins`)
             .then(response => {
                                                 // response.data is the users
             const admins = response.data

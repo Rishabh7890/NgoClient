@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+import { Button } from "@material-ui/core";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -16,6 +19,26 @@ const useStyles = makeStyles({
 
 const EventTable = ({ events }) => {
   const classes = useStyles();
+
+  const handleDelete = e => {
+    console.log(e);
+    axios.delete(`http://localhost:8080/events/delete/${e}`);
+    // window.open("http://127.0.0.1:3000/admindonations", "_self");
+  };
+
+  // handleDelete = async event => {
+  //   const events = props.events;
+  //   const filteredEvents = events.filter(ev => ev.eventName !== ev.eventName);
+  //   // this.setState({ events });
+
+  //   try {
+  //     await deleteEvent(event.eventName);
+  //   } catch (ex) {
+  //     if (ex.response && ex.response.status === 404) console.log("x");
+
+  //     this.setState({ events: filteredEvents });
+  //   }
+  // };
 
   return (
     <TableContainer component={Paper}>
@@ -47,8 +70,15 @@ const EventTable = ({ events }) => {
                 Edit
               </TableCell>
               <TableCell align="right">
-                {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
-                Delete
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => {
+                    handleDelete(e.eventName);
+                  }}
+                >
+                  Delete
+                </Button>
               </TableCell>
             </TableRow>
           ))}

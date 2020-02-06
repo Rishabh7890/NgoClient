@@ -40,13 +40,9 @@ const UserEventTable = ({ events }) => {
                 </TableCell>
                 <TableCell align="right">{e.startDate}</TableCell>
                 <TableCell align="right">{e.duration}</TableCell>
+                <TableCell align="right">{e.place}</TableCell>
                 <TableCell align="right">
-                  {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
-                  {e.place}
-                </TableCell>
-                <TableCell align="right">
-                  {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
-                  Donate
+                  <Link to="/adminchoicepage">Donate</Link>
                 </TableCell>
               </TableRow>
             ))}

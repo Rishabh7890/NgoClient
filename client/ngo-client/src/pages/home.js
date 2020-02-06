@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import MenuAppBar from "../components/navbar";
 import Button from "@material-ui/core/Button";
 
-
 const buttonMarginStyle = {
   marginTop: "25px"
 };

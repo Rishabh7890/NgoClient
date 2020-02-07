@@ -42,7 +42,7 @@ const UserEventTable = ({ events }) => {
                 <TableCell align="right">{e.duration}</TableCell>
                 <TableCell align="right">{e.place}</TableCell>
                 <TableCell align="right">
-                  <Link to="/adminchoicepage">Donate</Link>
+                  <Link to="/usermakedonation">Donate</Link>
                 </TableCell>
               </TableRow>
             ))}

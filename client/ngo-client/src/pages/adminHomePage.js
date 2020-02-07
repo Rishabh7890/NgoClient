@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import MenuAppBar from "../components/navbar";
 import Button from "@material-ui/core/Button";
-import Header from "../components/header";
 import Loggin from "../components/loginForm";
 import HomeIcon from "@material-ui/icons/Home";
 
@@ -34,9 +33,9 @@ class UserHomePage extends Component {
       </React.Fragment>
     );
   }
-  _handleNotAuthenticated = () => {
-    this.setState({ authenticated: false });
-  };
+  // _handleNotAuthenticated = () => {
+  //   this.setState({ authenticated: false });
+  // };
 }
 
 export default UserHomePage;

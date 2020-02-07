@@ -1,16 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import UserTable from "../components/userTable";
-import axios from "axios";
-import DonationTable from "../components/donationTable";
-import EventTable from "../components/eventTable";
 import MenuAppBar from "../components/navbar";
-// import "./App.css";
-import Button from "@material-ui/core/Button";
-import Loggin from "../components/loginForm";
-import Adduser from "../components/Adduser";
-import UserTemporaryDrawer from "../components/userSidebar";
-import UserEventTable from "../components/userEventTable";
 import Header from "../components/header";
 
 const buttonMarginStyle = {
@@ -66,8 +55,8 @@ class UserHomePage extends Component {
             <hr />
             {!authenticated ? (
               <h1>
-                Welcome! Please Log In Via Twitter To Access Current Events To Donate
-                To!
+                Welcome! Please Log In Via Twitter To Access Current Events To
+                Donate To!
               </h1>
             ) : (
               <div>

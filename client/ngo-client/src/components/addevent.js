@@ -97,14 +97,11 @@ class Addevent extends React.Component {
                   : "form-control"
               }
               onChange={this.changeHandler}
-              type="time"
+              type="text"
               id="defaultFormRegisterConfirmEx3"
               name="duration"
               placeholder="Event Duration"
             />
-            <small id="eduration" className="form-text text-muted">
-              We 'll never share your email with anyone else.{" "}
-            </small>{" "}
           </MDBCol>
           <MDBCol md="4" className="mb-3">
             <label

@@ -21,7 +21,6 @@ class DonationTable extends Component {
   state = {
     donations: []
   };
-  // classes = useStyles();
 
   componentDidMount() {
     axios.get(`http://localhost:8080/donations`).then(res => {
@@ -30,27 +29,22 @@ class DonationTable extends Component {
     });
   }
 
-  handleDelete = e => {
-    console.log(e);
-    axios.delete(`http://localhost:8080/donations/delete/${e}`);
-    // window.open("http://127.0.0.1:3000/admindonations", "_self");
+  handleDelete = async don => {
+    console.log(don);
+    const originalDons = this.state.donations;
+    const donations = originalDons.filter(d => d.donationId !== don);
+    this.setState({ donations });
+
+    try {
+      await axios.delete(`http://localhost:8080/donations/delete/${don}`);
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404) {
+        console.log(ex);
+        alert("Movie Already Deleted");
+        this.setState(originalDons);
+      }
+    }
   };
-
-  // handleDelete = async don => {
-  //   const originalDons = this.state.donations;
-  //   const donations = originalDons.filter(d => d.donationId !== don.donationId);
-  //   this.setState({ donations });
-
-  //   try {
-  //     await deleteDonation(don.donationId);
-  //   } catch (ex) {
-  //     if (ex.response && ex.response.status === 404) {
-  //       console.log(ex);
-  //       alert("Movie Already Deleted");
-  //       this.setState(originalDons);
-  //     }
-  //   }
-  // };
 
   render() {
     return (

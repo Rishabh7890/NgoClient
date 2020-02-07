@@ -1,56 +1,59 @@
 import React from "react";
+import axios from "axios";
 import { MDBCol, MDBBtn } from "mdbreact";
 
 class Addevent extends React.Component {
   state = {
-    ename: {
-      value: "",
-      valid: false
-    },
-    esdate: {
-      value: "",
-      valid: false
-    },
-    eduration: {
-      value: "",
-      valid: false
-    },
-    eplace: {
-      value: "",
-      valid: false
+    event: {
+      eventName: "",
+      startDate: "",
+      duration: "",
+      place: ""
     }
   };
 
-  changeHandler = event => {
+  changeHandler = e => {
+    const event = { ...this.state.event };
+    event[e.currentTarget.name] = e.currentTarget.value;
     this.setState({
-      [event.target.name]: {
-        value: event.target.value,
-        valid: !!event.target.value
-      }
+      event
     });
-};
- handleMenu = event => {
-  console.log(this.state.eduration.value);
-  console.log(this.state.epalce.value);
-  console.log(this.state.esdate.value);
-};
+  };
+  handleAdd = async () => {
+    const obj = this.state.event;
+    const { data: event } = await axios.post(
+      "http://127.0.0.1:8080/events",
+      obj
+    );
+    window.open("http://127.0.0.1:3000/adminevents", "_self");
+    // const events = [event, ...this.state.event];
+    // this.setState({ events });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.handleAdd();
+    console.log("class state");
+    console.log(this.state.event);
+  };
+
   render() {
     return (
       <div align="center">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <h1> Add a new Event </h1>
           <MDBCol align="center" md="4" className="mb-3">
             <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
               Event name{" "}
             </label>{" "}
             <input
-              value={this.state.ename.value}
+              value={this.state.event.eventName}
               className={
-                this.state.ename.valid
+                this.state.event.eventName.valid
                   ? "form-control is-valid"
-                  : "form-control is-invalid"
+                  : "form-control "
               }
-              name="ename"
+              name="eventName"
               onChange={this.changeHandler}
               type="text"
               id="defaultFormRegisterNameEx"
@@ -64,13 +67,13 @@ class Addevent extends React.Component {
               Start Date{" "}
             </label>{" "}
             <input
-              value={this.state.esdate.value}
+              value={this.state.event.startDate}
               className={
-                this.state.esdate.valid
+                this.state.event.startDate.valid
                   ? "form-control is-valid"
-                  : "form-control is-invalid"
+                  : "form-control"
               }
-              name="esdate"
+              name="startDate"
               onChange={this.changeHandler}
               type="date"
               id="defaultFormRegisterEmailEx2"
@@ -87,16 +90,16 @@ class Addevent extends React.Component {
               Duration{" "}
             </label>{" "}
             <input
-              value={this.state.eduration.value}
+              value={this.state.event.duration}
               className={
-                this.state.eduration.valid
+                this.state.event.duration.valid
                   ? "form-control is-valid"
-                  : "form-control is-invalid"
+                  : "form-control"
               }
               onChange={this.changeHandler}
               type="time"
               id="defaultFormRegisterConfirmEx3"
-              name="eduration"
+              name="duration"
               placeholder="Event Duration"
             />
             <small id="eduration" className="form-text text-muted">
@@ -111,17 +114,17 @@ class Addevent extends React.Component {
               Place{" "}
             </label>{" "}
             <input
-              value={this.state.eplace.value}
+              value={this.state.event.place}
               className={
-                this.state.eplace.valid
+                this.state.event.place.valid
                   ? "form-control is-valid"
-                  : "form-control is-invalid"
+                  : "form-control"
               }
               onChange={this.changeHandler}
               type="location"
               id="defaultFormRegisterPasswordEx4"
               className="form-control"
-              name="eplace"
+              name="place"
               placeholder="location"
               required
             />
@@ -130,7 +133,7 @@ class Addevent extends React.Component {
             </div>{" "}
             <div className="valid-feedback"> Looks good! </div>{" "}
           </MDBCol>{" "}
-          <MDBCol md="4" className="mb-3">
+          {/* <MDBCol md="4" className="mb-3">
             <div className="custom-control custom-checkbox pl-3">
               <input
                 className="custom-control-input"
@@ -143,7 +146,7 @@ class Addevent extends React.Component {
                 You must agree before submitting.{" "}
               </div>{" "}
             </div>{" "}
-          </MDBCol>{" "}
+          </MDBCol>{" "} */}
           <MDBBtn color="primary" type="submit">
             Submit{" "}
           </MDBBtn>{" "}

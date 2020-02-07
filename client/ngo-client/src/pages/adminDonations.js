@@ -18,17 +18,6 @@ const buttonMarginStyle = {
 };
 
 class AdminDonations extends Component {
-  state = {
-    donations: []
-  };
-
-  componentDidMount() {
-    axios.get(`http://localhost:8080/donations`).then(res => {
-      const donations = res.data;
-      this.setState({ donations });
-    });
-  }
-
   _handleLogoutClick = () => {
     window.open("http://127.0.0.1:3000/", "_self");
   };
@@ -39,7 +28,7 @@ class AdminDonations extends Component {
         <MenuAppBar />
         <div className="App" align="center">
           <header className="App-header" style={buttonMarginStyle}>
-            <DonationTable donations={this.state.donations} />
+            <DonationTable />
             <Button variant="contained" color="default">
               <Link to="/adminchoicepage">Back</Link>
             </Button>

@@ -9,6 +9,7 @@ import AdminDonations from "./pages/adminDonations";
 import AdminEvents from "./pages/adminEvents";
 import AdminChoicePage from "./pages/adminChoicePage";
 import AdminAddEvent from "./pages/adminAddEvent";
+import UserMakeDonation from "./pages/userMakeDonation";
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,7 @@ class App extends Component {
             <Switch>
               <Route path="/userhomepage" component={UserHomePage} />
               <Route path="/usereventpage" component={UserEventPage} />
+              <Route path="/usermakedonation" component={UserMakeDonation} />
               <Route path="/adminchoicepage" component={AdminChoicePage} />
               <Route path="/adminhomepage" component={AdminHomePage} />
               <Route path="/adminusers" component={AdminUsers} />

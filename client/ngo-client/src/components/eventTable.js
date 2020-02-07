@@ -26,13 +26,13 @@ const EventTable = ({ events }) => {
     // window.open("http://127.0.0.1:3000/admindonations", "_self");
   };
 
-  // handleDelete = async event => {
+  // const handleDelete = async event => {
   //   const events = props.events;
   //   const filteredEvents = events.filter(ev => ev.eventName !== ev.eventName);
-  //   // this.setState({ events });
+  //   this.setState({ events });
 
   //   try {
-  //     await deleteEvent(event.eventName);
+  //     await axios.delete(`http://localhost:8080/events/delete/${e}`);
   //   } catch (ex) {
   //     if (ex.response && ex.response.status === 404) console.log("x");
 
@@ -49,7 +49,7 @@ const EventTable = ({ events }) => {
             <TableCell align="right">Start Date</TableCell>
             <TableCell align="right">Duration</TableCell>
             <TableCell align="right">Place</TableCell>
-            <TableCell align="right">Edit</TableCell>
+            {/* <TableCell align="right">Edit</TableCell> */}
             <TableCell align="right">Delete</TableCell>
           </TableRow>
         </TableHead>
@@ -61,14 +61,8 @@ const EventTable = ({ events }) => {
               </TableCell>
               <TableCell align="right">{e.startDate}</TableCell>
               <TableCell align="right">{e.duration}</TableCell>
-              <TableCell align="right">
-                {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
-                {e.place}
-              </TableCell>
-              <TableCell align="right">
-                {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
-                Edit
-              </TableCell>
+              <TableCell align="right">{e.place}</TableCell>
+              {/* <TableCell align="right">Edit</TableCell> */}
               <TableCell align="right">
                 <Button
                   variant="contained"

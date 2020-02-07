@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import MenuAppBar from "../components/navbar";
-// import "./App.css";
-import Button from "@material-ui/core/Button";
-import Loggin from "../components/loginForm";
 import UserEventTable from "../components/userEventTable";
 
 let url = `http://localhost:8080/events`;

@@ -12,14 +12,6 @@ import AdminAddEvent from "./pages/adminAddEvent";
 import UserMakeDonation from "./pages/userMakeDonation";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: {},
-      disabled: ""
-    };
-    this.popup = null;
-  }
   render() {
     return (
       <div className="App container">

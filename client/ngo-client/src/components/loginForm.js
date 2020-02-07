@@ -7,9 +7,7 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBBtn,
-  MDBIcon,
-  MDBModalFooter
+  MDBBtn
 } from "mdbreact";
 
 const Loggin = () => {

@@ -33,9 +33,6 @@ class UserHomePage extends Component {
       </React.Fragment>
     );
   }
-  // _handleNotAuthenticated = () => {
-  //   this.setState({ authenticated: false });
-  // };
 }
 
 export default UserHomePage;

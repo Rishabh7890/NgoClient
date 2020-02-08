@@ -9,6 +9,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Button } from "@material-ui/core";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const useStyles = makeStyles({
   table: {
@@ -71,7 +72,7 @@ class UserTable extends Component {
                       this.handleDelete(u.screenName);
                     }}
                   >
-                    Delete
+                    <HighlightOffIcon />
                   </Button>
                 </TableCell>
               </TableRow>

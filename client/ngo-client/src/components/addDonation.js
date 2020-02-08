@@ -99,9 +99,6 @@ class AddDonation extends React.Component {
               name="donationRefEmail"
               placeholder="Twitter ID Used For Donation"
             />
-            <small id="donationRefEmail" className="form-text text-muted">
-              We 'll never share your ID with anyone else.{" "}
-            </small>{" "}
           </MDBCol>
           <MDBBtn color="primary" type="submit">
             Submit{" "}

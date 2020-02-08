@@ -8,6 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Button } from "@material-ui/core";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 class DonationTable extends Component {
   state = {
@@ -68,7 +69,7 @@ class DonationTable extends Component {
                       this.handleDelete(d.donationId);
                     }}
                   >
-                    Delete
+                    <HighlightOffIcon />
                   </Button>
                 </TableCell>
               </TableRow>

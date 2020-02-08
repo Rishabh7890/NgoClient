@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import LogoutAlertDialog from "./logoutAlertDialogBox";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -76,7 +77,8 @@ export default function MenuAppBar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={_handleLogoutClick}>Logout</MenuItem>
+                {/* <MenuItem onClick={_handleLogoutClick}>Logout</MenuItem> */}
+                <LogoutAlertDialog />
               </Menu>
             </div>
           )}

@@ -9,6 +9,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 class EventTable extends Component {
   state = {
@@ -69,7 +70,7 @@ class EventTable extends Component {
                       this.handleDelete(e.eventName);
                     }}
                   >
-                    Delete
+                    <HighlightOffIcon />
                   </Button>
                 </TableCell>
               </TableRow>

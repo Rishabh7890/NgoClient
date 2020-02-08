@@ -22,9 +22,6 @@ class UserMakeDonation extends Component {
         <div className="App" align="center">
           <header className="App-header" style={buttonMarginStyle}>
             <AddDonation />
-            {/* <Button variant="contained" color="default">
-              <Link to="/usereventpage">Back</Link>
-            </Button> */}
             <DonationAlertDialog />
           </header>
         </div>

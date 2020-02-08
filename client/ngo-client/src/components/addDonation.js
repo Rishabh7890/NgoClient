@@ -8,8 +8,18 @@ class AddDonation extends React.Component {
       donationType: "",
       donationAmount: "",
       donationRefEmail: ""
-    }
+    },
+    events: []
   };
+
+  // This will fill donationType field as Event Name and Disable it so User cannot edit
+  componentDidMount() {
+    axios.get(`http://localhost:8080/events`).then(res => {
+      const events = res.data;
+      this.setState({ events });
+      console.log(this.state.events);
+    });
+  }
 
   changeHandler = e => {
     const donation = { ...this.state.donation };
@@ -35,6 +45,17 @@ class AddDonation extends React.Component {
   };
 
   render() {
+    console.log(window.location.pathname.slice(18));
+    const eve = window.location.pathname.slice(18);
+    let thisEvent = "";
+
+    this.state.events.map(ev => {
+      if (ev.id === eve) {
+        thisEvent = ev.eventName;
+      }
+    });
+
+    console.log(thisEvent);
     return (
       <div align="center">
         <form onSubmit={this.handleSubmit}>
@@ -44,7 +65,8 @@ class AddDonation extends React.Component {
               Event To Donate To{" "}
             </label>{" "}
             <input
-              value={this.state.donation.donationType}
+              disabled
+              value={thisEvent}
               className={
                 this.state.donation.donationType.valid
                   ? "form-control is-valid"
@@ -84,7 +106,8 @@ class AddDonation extends React.Component {
               htmlFor="defaultFormRegisterConfirmEx3"
               className="grey-text"
             >
-              Donation Reference Twitter ID{" "}
+              Please Enter Your Twitter ID As Signature You Approve Of This
+              Donation{" "}
             </label>{" "}
             <input
               value={this.state.donation.donationRefEmail}
@@ -97,7 +120,7 @@ class AddDonation extends React.Component {
               type="text"
               id="defaultFormRegisterConfirmEx3"
               name="donationRefEmail"
-              placeholder="Twitter ID Used For Donation"
+              placeholder="Signature"
             />
           </MDBCol>
           <MDBBtn color="primary" type="submit">

@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { MDBCol, MDBBtn } from "mdbreact";
-
 class Addevent extends React.Component {
   state = {
     event: {
@@ -130,20 +129,6 @@ class Addevent extends React.Component {
             </div>{" "}
             <div className="valid-feedback"> Looks good! </div>{" "}
           </MDBCol>{" "}
-          {/* <MDBCol md="4" className="mb-3">
-            <div className="custom-control custom-checkbox pl-3">
-              <input
-                className="custom-control-input"
-                type="checkbox"
-                value=""
-                id="invalidCheck"
-                required
-              />
-              <div className="invalid-feedback">
-                You must agree before submitting.{" "}
-              </div>{" "}
-            </div>{" "}
-          </MDBCol>{" "} */}
           <MDBBtn color="primary" type="submit">
             Submit{" "}
           </MDBBtn>{" "}

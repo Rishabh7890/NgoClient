@@ -4,6 +4,7 @@ import MenuAppBar from "../components/navbar";
 import Button from "@material-ui/core/Button";
 import Addevent from "../components/addevent";
 import AddDonation from "../components/addDonation";
+import DonationAlertDialog from "../components/donationAlertDialogBox";
 
 const buttonMarginStyle = {
   marginTop: "25px"
@@ -21,9 +22,10 @@ class UserMakeDonation extends Component {
         <div className="App" align="center">
           <header className="App-header" style={buttonMarginStyle}>
             <AddDonation />
-            <Button variant="contained" color="default">
+            {/* <Button variant="contained" color="default">
               <Link to="/usereventpage">Back</Link>
-            </Button>
+            </Button> */}
+            <DonationAlertDialog />
           </header>
         </div>
       </React.Fragment>

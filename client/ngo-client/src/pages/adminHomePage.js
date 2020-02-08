@@ -4,6 +4,7 @@ import MenuAppBar from "../components/navbar";
 import Button from "@material-ui/core/Button";
 import Loggin from "../components/loginForm";
 import HomeIcon from "@material-ui/icons/Home";
+import ReduxLogin from "../components/reduxLogin";
 
 const buttonMarginStyle = {
   marginTop: "25px"

@@ -5,14 +5,13 @@ import { MDBCol, MDBBtn } from "mdbreact";
 class AddDonation extends React.Component {
   state = {
     donation: {
-      donationType: "",
+      donationType: "", // corresponds to eventName on UI but actual REST field is donationType
       donationAmount: "",
       donationRefEmail: ""
     },
     events: []
   };
 
-  // This will fill donationType field as Event Name and Disable it so User cannot edit
   componentDidMount() {
     axios.get(`http://localhost:8080/events`).then(res => {
       const events = res.data;
@@ -39,12 +38,6 @@ class AddDonation extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.handleAdd();
-    console.log("class state");
-    console.log(this.state.donation);
-  };
-
-  render() {
     console.log(window.location.pathname.slice(18));
     const eve = window.location.pathname.slice(18);
     let thisEvent = "";
@@ -55,11 +48,36 @@ class AddDonation extends React.Component {
       }
     });
 
-    console.log(thisEvent);
+    this.setState(prevState => ({
+      donation: {
+        // object that we want to update
+        ...prevState.donation, // keep all other key-value pairs
+        donationType: thisEvent // update the value of specific key
+      }
+    }));
+
+    this.handleAdd();
+    // console.log("class state");
+    // console.log(this.state.donation);
+  };
+
+  render() {
+    // console.log(window.location.pathname.slice(18));
+    const eve = window.location.pathname.slice(18); // returns string of specific ID in URL
+    let thisEvent = "";
+
+    this.state.events.map(ev => {
+      if (ev.id === eve) {
+        thisEvent = ev.eventName;
+      }
+    });
+
+    console.log(`State: donationType = ${thisEvent}`);
+
     return (
       <div align="center">
         <form onSubmit={this.handleSubmit}>
-          <h1> Donate Now! </h1>
+          <h1> Donate to {thisEvent} Now! </h1>
           <MDBCol align="center" md="4" className="mb-3">
             <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
               Event To Donate To{" "}

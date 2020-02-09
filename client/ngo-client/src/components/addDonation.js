@@ -33,7 +33,7 @@ class AddDonation extends React.Component {
       "http://127.0.0.1:8080/donations",
       obj
     );
-    window.open("http://127.0.0.1:3000/usereventpage", "_self");
+    window.open("http://127.0.0.1:3000/thankyou", "_self");
   };
 
   handleSubmit = e => {
@@ -58,7 +58,7 @@ class AddDonation extends React.Component {
 
     this.handleAdd();
     // console.log("class state");
-    // console.log(this.state.donation);
+    console.log(this.state.donation);
   };
 
   render() {
@@ -116,6 +116,7 @@ class AddDonation extends React.Component {
               id="defaultFormRegisterEmailEx2"
               placeholder="Donation Amount"
               required
+              autoComplete="off"
             />
             <div className="valid-feedback"> Looks good! </div>{" "}
           </MDBCol>
@@ -139,6 +140,8 @@ class AddDonation extends React.Component {
               id="defaultFormRegisterConfirmEx3"
               name="donationRefEmail"
               placeholder="Signature"
+              autoComplete="off"
+              required
             />
           </MDBCol>
           <MDBBtn color="primary" type="submit">

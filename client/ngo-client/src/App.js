@@ -16,6 +16,7 @@ import AdminChoicePage from "./pages/adminChoicePage";
 import AdminAddEvent from "./pages/adminAddEvent";
 import UserMakeDonation from "./pages/userMakeDonation";
 import NotFound from "./pages/notFound";
+import ThankYou from "./pages/thankYou";
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
                 component={UserMakeDonation}
               />
               <Route path="/userhomepage" component={UserHomePage} />
+              <Route path="/thankyou" component={ThankYou} />
               <Route path="/usereventpage" component={UserEventPage} />
               <Route path="/adminchoicepage" component={AdminChoicePage} />
               <Route path="/adminhomepage" component={AdminHomePage} />

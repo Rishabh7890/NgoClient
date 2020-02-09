@@ -58,6 +58,7 @@ class Addevent extends React.Component {
               id="defaultFormRegisterNameEx"
               placeholder="Event name"
               required
+              autoComplete="off"
             />
             <div className="valid-feedback"> Looks good! </div>{" "}
           </MDBCol>
@@ -100,6 +101,7 @@ class Addevent extends React.Component {
               id="defaultFormRegisterConfirmEx3"
               name="duration"
               placeholder="Event Duration"
+              autoComplete="off"
             />
           </MDBCol>
           <MDBCol md="4" className="mb-3">
@@ -123,6 +125,7 @@ class Addevent extends React.Component {
               name="place"
               placeholder="location"
               required
+              autoComplete="off"
             />
             <div className="invalid-feedback">
               Please provide a Valid password{" "}

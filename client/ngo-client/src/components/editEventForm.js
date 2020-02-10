@@ -80,6 +80,12 @@ class EditEventForm extends React.Component {
     console.log(thisEventDate);
     console.log(thisEventDuration);
     console.log(thisEventPlace);
+
+    // this.state.event.eventName = thisEvent;
+    // this.state.event.startDate = thisEventDate;
+    // this.state.event.duration = thisEventDuration;
+    // this.state.event.place = thisEventPlace;
+
     return (
       <div align="center">
         <form onSubmit={this.handleSubmit}>
@@ -89,7 +95,7 @@ class EditEventForm extends React.Component {
               Event name{" "}
             </label>{" "}
             <input
-              value={thisEvent}
+              defaultValue={thisEvent}
               className={
                 this.state.event.eventName.valid
                   ? "form-control is-valid"
@@ -110,7 +116,7 @@ class EditEventForm extends React.Component {
               Start Date{" "}
             </label>{" "}
             <input
-              value={thisEventDate}
+              defaultValue={thisEventDate}
               className={
                 this.state.event.startDate.valid
                   ? "form-control is-valid"
@@ -133,7 +139,7 @@ class EditEventForm extends React.Component {
               Duration{" "}
             </label>{" "}
             <input
-              value={thisEventDuration}
+              defaultValue={thisEventDuration}
               className={
                 this.state.event.duration.valid
                   ? "form-control is-valid"
@@ -155,7 +161,7 @@ class EditEventForm extends React.Component {
               Place{" "}
             </label>{" "}
             <input
-              value={thisEventPlace}
+              defaultValue={thisEventPlace}
               className={
                 this.state.event.place.valid
                   ? "form-control is-valid"

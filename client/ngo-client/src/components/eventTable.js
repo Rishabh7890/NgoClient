@@ -10,6 +10,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import { Link } from "react-router-dom";
 
 class EventTable extends Component {
   state = {
@@ -50,6 +51,7 @@ class EventTable extends Component {
               <TableCell align="right">Start Date</TableCell>
               <TableCell align="right">Duration</TableCell>
               <TableCell align="right">Place</TableCell>
+              <TableCell align="right">Edit</TableCell>
               <TableCell align="right">Delete</TableCell>
             </TableRow>
           </TableHead>
@@ -62,6 +64,9 @@ class EventTable extends Component {
                 <TableCell align="right">{e.startDate}</TableCell>
                 <TableCell align="right">{e.duration}</TableCell>
                 <TableCell align="right">{e.place}</TableCell>
+                <TableCell align="right">
+                  <Link to={`/editevent/${e.id}`}>Edit</Link>
+                </TableCell>
                 <TableCell align="right">
                   <Button
                     variant="contained"

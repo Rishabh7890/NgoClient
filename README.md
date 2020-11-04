@@ -2,7 +2,7 @@
 
 ## Description
 
-A MERN stack application, relying on Java SpringBoot REST API in which local events are posted by Admins and people accross social media can donate to.
+A MERN stack application, relying on Custom Java SpringBoot REST API in which local events are posted by Admins and people accross social media can donate to.
 
 ## Project Structure
 
@@ -16,7 +16,7 @@ For our frontend we decided to use React. However, to utilize social media login
 
 ## Project Plan
 
-The plan we chose to follow was that of a real donation company. We wanted it to be so that our application was accessible to as many people as possible. When thinking about this we realize that in real life people are not so willing to put in sensitive information about themselves on simply any website or application. Thus, we decided to design our application to use OAuth 2.0's Passport JS library and utilize multiple social media logins. The idea behind this is that we cover all the major social media platforms (Twitter, Google, Instagram, Facebook, LinkedIn, GitHub etc.) so that the application is available to essentially everyone who has some form of social media. This eliminates the need for users to literally register to our application as the authentication is all covered by the major social media company. In the case our application is attacked by hackers, all they would get is the already public user id for the social media network, but no passwords or other sensitive info would be exposed. This is what the majority of start-up companies / online based companies do so that their liablity is at a minimmum and also so that their customers feel more secure, and their application is available to the maximum number of users.
+We wanted it to be so that our application was accessible to as many people as possible. When thinking about this we realize that in real life people are not so willing to put in sensitive information about themselves on simply any website or application. Thus, we decided to design our application to use OAuth 2.0's Passport JS library and utilize multiple social media logins. The idea behind this is that we cover all the major social media platforms (Twitter, Google, Instagram, Facebook, LinkedIn, GitHub etc.) so that the application is available to essentially everyone who has some form of social media. This eliminates the need for users to literally register to our application as the authentication is all covered by the major social media company. In the case our application is attacked by hackers, all they would get is the already public user id for the social media network, but no passwords or other sensitive info would be exposed. This is what the majority of start-up companies / online based companies do so that their liablity is at a minimmum and also so that their customers feel more secure, and their application is available to the maximum number of users.
 
 ## Upcoming Updates:
 

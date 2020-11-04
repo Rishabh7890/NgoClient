@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import Loggin from "../components/loginForm";
 import HomeIcon from "@material-ui/icons/Home";
 import ReduxLogin from "../components/reduxLogin";
+import MostafaLogin from "../components/mostagaLogin";
 
 const buttonMarginStyle = {
   marginTop: "25px"
@@ -30,6 +31,7 @@ class UserHomePage extends Component {
         </div>
         <div className="">
           <Loggin />
+          {/* <MostafaLogin />{" "} */}
         </div>
       </React.Fragment>
     );

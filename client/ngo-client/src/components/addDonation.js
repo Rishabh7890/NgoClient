@@ -29,6 +29,7 @@ class AddDonation extends React.Component {
   };
   handleAdd = async () => {
     const obj = this.state.donation;
+    console.log(obj);
     const { data: donation } = await axios.post(
       "http://127.0.0.1:8080/donations",
       obj
@@ -56,6 +57,8 @@ class AddDonation extends React.Component {
       }
     }));
 
+    console.log(this.state.donation.donationType, "donationtype");
+
     this.handleAdd();
     // console.log("class state");
     console.log(this.state.donation);
@@ -72,13 +75,15 @@ class AddDonation extends React.Component {
       }
     });
 
+    //this.setState({donation.donationType: thisEvent})
+
     console.log(`State: donationType = ${thisEvent}`);
 
     return (
       <div align="center">
         <form onSubmit={this.handleSubmit}>
           <h1> Donate to {thisEvent} Now! </h1>
-          <MDBCol align="center" md="4" className="mb-3">
+          {/* <MDBCol align="center" md="4" className="mb-3">
             <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
               Event To Donate To{" "}
             </label>{" "}
@@ -98,7 +103,7 @@ class AddDonation extends React.Component {
               required
             />
             <div className="valid-feedback"> Looks good! </div>{" "}
-          </MDBCol>
+          </MDBCol> */}
           <MDBCol md="4" className="mb-3">
             <label htmlFor="defaultFormRegisterEmailEx2" className="grey-text">
               Donation Amount{" "}
